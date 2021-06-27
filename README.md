@@ -46,13 +46,13 @@ Feel free to write your own makefile
 
 ### With GDB connection
 - QEMU implements a gdb interface using a TCP connection. The command to start and run the program in QEMU with GDB support
-```$ qemu-system-arm -M versatilepb -m 128M -nographic -s -S -kernel test.bin```
+```$ qemu-system-arm -M versatilepb -m 128M -nographic -s -S -kernel qemu_hello.bin```
 - This command freezes the system before executing any guest code, and waits for a connection on the TCP port 1234. On another terminal, start the GDB connection using command
 ```$ arm-none-eabi-gdb```
 - Inside gdb specify the binary file and target address to connect. If prompted to restart GDB execution, select yes. After binary loading is successful, run the program with continue command.
 ```
 $ target remote localhost:1234
-$ file qemu_hello.bin
+$ file qemu_hello.elf
 $ continue
 ```
 - As soon as continue command is issued by GDB tool, qemu outputs "Hello world frm QEMU!" in the terminal.
